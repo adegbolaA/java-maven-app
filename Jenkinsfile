@@ -12,7 +12,7 @@
               stage ("init"){
                 steps{
                     script{
-                        dv = load "script.groovy"
+                        gv = load "script.groovy"
                     }
                 }
               }
@@ -20,14 +20,14 @@
             stage("build jar"){
               steps{
                     script {
-                         gv.buildJar
+                         gv.buildJar()
                     }
               }
             }
               stage("build Docker Image"){
                     steps{
                           script {
-                                gv.buildDockerImage
+                                gv.buildDockerImage()
                           }
                     }
               }
