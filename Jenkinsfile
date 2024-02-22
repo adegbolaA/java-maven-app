@@ -30,7 +30,7 @@ def gv
       stage('build Docker Image') {
         steps {
           script {
-            buildDockerImage'kevinlearningaccount/java-maven:3.0'
+            buildDockerImage 'kevinlearningaccount/java-maven:3.0'
            // dockerLogin()
             //dockerPush 'kevinlearningaccount/java-maven:3.0'
           }
