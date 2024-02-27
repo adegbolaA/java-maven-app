@@ -30,7 +30,7 @@ def gv
 
       stage('build jar') {
         when{
-          expressions {
+          expression {
             BRANCH_NAME == "main"
           }
         }
@@ -42,7 +42,7 @@ def gv
       }
       stage('build Docker Image') {
        when{
-          expressions {
+          expression {
             BRANCH_NAME == "main"
           }
         }
