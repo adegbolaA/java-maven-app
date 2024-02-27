@@ -12,6 +12,14 @@ def gv
     }
 
     stages {
+      stage('Testing') {
+        steps {
+          script {
+               "echo testing"
+          }
+        }
+      }
+      
       stage('init') {
         steps {
           script {
@@ -21,6 +29,11 @@ def gv
       }
 
       stage('build jar') {
+        when{
+          expressions {
+            BRANCH_NAME == "main"
+          }
+        }
         steps {
           script {
             buildJar()
@@ -28,6 +41,11 @@ def gv
         }
       }
       stage('build Docker Image') {
+       when{
+          expressions {
+            BRANCH_NAME == "main"
+          }
+        }
         steps {
           script {
             buildDockerImage 'kevinlearningaccount/java-maven:3.0'
